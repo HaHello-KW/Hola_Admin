@@ -11,6 +11,7 @@ import EditableButtonSelector from '../../question_type/EditableButtonSelector';
 import NumberSelector from '../../question_type/NumberPicker';
 import SixlinePickerComponent from '../../question_type/SixlinePicker';
 import HybridComponent from '../../question_type/Hybrid';
+import CombinatedComponent from '../../question_type/Combinated';
 function Type_D() {
   let typeD_content = [
     {
@@ -28,6 +29,21 @@ function Type_D() {
     },
     {
       content: (
+        <CombinatedComponent
+        dateFormat="yyyy-MM-dd"
+        placeholderText="년도"
+        answer="에 첫째를 낳았고"
+        options = {[
+          '둘째 생각이 있어',
+          '둘째 생각이 없어'
+        ]}
+          activateOption={(option) => activateOption(1, option,'combinatedcomponent')}
+        />
+      ),
+      type: 'combinatedcomponent'
+    },
+    {
+      content: (
         <NumberSelector
           onSelect={(selectedNumber) => console.log(selectedNumber)}
           buttonText="살에 둘째 아이를 갖고 싶어"
@@ -35,6 +51,21 @@ function Type_D() {
         />
       ),
       type: 'numberselector',
+    },
+    {
+      content: (
+        <CombinatedComponent
+        dateFormat="yyyy-MM-dd"
+        placeholderText="년도"
+        answer="에 둘째를 낳았고"
+        options = {[
+          '셋째 생각이 있어',
+          '셋째 생각이 없어'
+        ]}
+          activateOption={(option) => activateOption(3, option,'combinatedcomponent')}
+        />
+      ),
+      type: 'combinatedcomponent'
     },
     {
       content: (

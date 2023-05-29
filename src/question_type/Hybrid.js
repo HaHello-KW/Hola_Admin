@@ -15,7 +15,7 @@ const HybridComponent = ({ dateFormat, placeholderText, answer,onSelect, buttonT
         onSelect(selectedNumber);
       }
     };
-
+    const textBoxWidth = answer ? `${answer.length * 30}px` : '100px'
     return (
       <div>
         <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -34,7 +34,7 @@ const HybridComponent = ({ dateFormat, placeholderText, answer,onSelect, buttonT
               style={{ marginRight: '10px' }}
             />
           </div>
-          <input type="text" value={answer} disabled style={{ marginRight: '10px', width: '50px'}} />
+          <input type="text" value={answer} disabled style={{ marginRight: '10px', width: textBoxWidth}} />
           <select id="number" value={selectedNumber} onChange={handleNumberChange} style={{ paddingLeft: '20px' }}>
             <option value="">숫자</option>
             {Array.from({ length: 51 }, (_, i) => (

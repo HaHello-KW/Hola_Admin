@@ -18,6 +18,7 @@ const ButtonSelector = ({headQuestion, options: initialOptions, activateOption }
 
   function handleSaveClick(index, newContent) {
     handleOptionEdit(index, newContent);
+    
     setEditingIndex(null);
   }
 
