@@ -9,42 +9,30 @@ import DatePickerComponent from '../../question_type/DatePicker';
 import ButtonSelector from '../../question_type/ButtonSelector';
 import EditableButtonSelector from '../../question_type/EditableButtonSelector';
 import NumberSelector from '../../question_type/NumberPicker';
+import SixlinePickerComponent from '../../question_type/SixlinePicker';
+import HybridComponent from '../../question_type/Hybrid';
 function Type_C() {
   let typeC_content = [
     {
       content: (
-        <ButtonSelector
-          options={[
-            '결혼하고 싶어',
-            '결혼 생각이 없어',
-            '아직 잘 모르겠어',
-          ]}
-          activateOption={(option) => activateOption(0, option,'buttonselector')}
+        <DatePickerComponent
+          placeholderText="년 월 일"
+          answer="에 결혼했어"
+          dateFormat="yyyy-MM-dd"
+          activateOption={(option) => activateOption(0, option, 'datepicker')}
         />
       ),
-      type: 'buttonselector'
-    },
-    {
-      content: (
-        <NumberSelector
-          onSelect={(selectedNumber) => console.log(selectedNumber)}
-          buttonText="살쯤에 결혼하면 좋겠어"
-          activateOption={(option) => activateOption(1, option,'numberselector')}
-        />
-      ),
-      type: 'numberselector',
+      type: 'datepicker',
     },
     {
       content: (
         <ButtonSelector
+        head_question="나는 아이를"
           options={[
-            '결혼을 안 했어',
-            '결혼을 했어',
-            '임신 준비 중이야',
-            '자녀가 있어',
-            '임신 중이야',
+            '갖고 싶어',
+            '갖고 싶은 생각이 없어'
           ]}
-          activateOption={(option) => activateOption(2, option,'buttonselector')}
+          activateOption={(option) => activateOption(1, option,'buttonselector')}
         />
       ),
       type: 'buttonselector'
@@ -54,7 +42,17 @@ function Type_C() {
         <NumberSelector
           onSelect={(selectedNumber) => console.log(selectedNumber)}
           buttonText="살쯤에 첫째 아이를 갖고 싶어"
-                    activateOption={(option) => activateOption(3, option,'numberselector')}
+          activateOption={(option) => activateOption(2, option,'numberselector')}
+        />
+      ),
+      type: 'numberselector',
+    },
+    {
+      content: (
+        <NumberSelector
+          onSelect={(selectedNumber) => console.log(selectedNumber)}
+          buttonText="살쯤에 둘째 아이를 갖고 싶어"
+          activateOption={(option) => activateOption(3, option,'numberselector')}
         />
       ),
       type: 'numberselector',
@@ -62,11 +60,63 @@ function Type_C() {
     {
       content: (
         <ButtonSelector
+        head_question="나는 난자 냉동을"
           options={[
-            '아이를 1명만 갖고 싶어',
-            '둘째도 갖고 싶어',
+            '이미해서 보관 중이야',
+            '하지 않았지만, 관심 있어',
+            '하지 않았지만, 별로 관심 없어',
+            '잘 모르고 있어',
           ]}
           activateOption={(option) => activateOption(4, option,'buttonselector')}
+        />
+      ),
+      type: 'buttonselector'
+    },
+    {
+      content: (
+        <HybridComponent
+          dateFormat="yyyy-MM-dd"
+          placeholderText="년 월 일"
+          answer ="에"
+          onSelect={(selectedNumber) => console.log(selectedNumber)}
+          buttonText="개의 난자를 얼려 놓았어"
+          activateOption={(option) => activateOption(5, option,'hybrid')}
+        />
+      ),
+      type: 'hybrid'
+    },
+    {
+      content: (
+        <ButtonSelector
+        head_question="나는"
+          options={[
+            '난임 시술을 준비 중이야',
+            '자연 임신을 준비 중이야',
+          ]}
+          activateOption={(option) => activateOption(6, option,'buttonselector')}
+        />
+      ),
+      type: 'buttonselector'
+    },
+    {
+      content:(
+        <SixlinePickerComponent
+        dateFormat="yyyy-MM-dd"
+          placeholderText="년 월 일"
+          activateOption={(option) => activateOption(7, option,'sixlinePicker')}
+          />
+      ),
+      type: "sixlinePicker"
+    },
+    {
+      content: (
+        <ButtonSelector
+        head_question="나는 생리일이"
+          options={[
+            '규칙적이야',
+            '불규칙적이야'
+          ]}
+          activateOption={(option) => activateOption(8, option,'buttonselector')}
         />
       ),
       type: 'buttonselector'

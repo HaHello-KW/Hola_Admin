@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import EditableButtonSelector from './EditableButtonSelector';
 
-const ButtonSelector = ({ options: initialOptions, activateOption }) => {
+const ButtonSelector = ({headQuestion, options: initialOptions, activateOption }) => {
+  const [headquestion, setheadquestion]=useState(headQuestion);
   const [options, setOptions] = useState(initialOptions);
   const [editingIndex, setEditingIndex] = useState(null);
 
@@ -28,7 +29,7 @@ const ButtonSelector = ({ options: initialOptions, activateOption }) => {
     <div>
       <div>
         <label style={{ marginRight: '100px' }}>질문</label>
-        <input type="text" value="나는" disabled style={{ marginRight: '10px' }} />
+        <input type="text" value="나는" disabled style={{ marginRight: '10px' }}/>
       </div>
       <div style={{ height: '30px' }}></div>
       <div>

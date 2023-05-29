@@ -3,13 +3,7 @@ import './App.css';
 import Container from '@mui/material/Container';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
-import Grid2 from '@mui/material/Grid';
-import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import DatePickerComponent from './question_type/DatePicker';
-import ButtonSelector from './question_type/ButtonSelector';
-import EditableDatePicker from './question_type/EditableDatePicker';
-import EditableButtonSelector from './question_type/EditableButtonSelector';
 import Header from './components/Header';
 import Nav from './components/Nav';
 import Default from './components/survey/Default';
@@ -49,7 +43,7 @@ function App() {
               }})()}
             </Box>
           </Box>
-          <Footer />
+          <Footer></Footer>
         </Box>
       </Container>
     </React.Fragment>

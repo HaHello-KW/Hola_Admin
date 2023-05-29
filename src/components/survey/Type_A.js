@@ -9,11 +9,13 @@ import DatePickerComponent from '../../question_type/DatePicker';
 import ButtonSelector from '../../question_type/ButtonSelector';
 import EditableButtonSelector from '../../question_type/EditableButtonSelector';
 import NumberSelector from '../../question_type/NumberPicker';
+import SixlinePickerComponent from '../../question_type/SixlinePicker';
 function Type_A() {
   let typeA_content = [
     {
       content: (
         <ButtonSelector
+        head_question="나는"
           options={[
             '결혼하고 싶어',
             '결혼 생각이 없어',
@@ -37,12 +39,10 @@ function Type_A() {
     {
       content: (
         <ButtonSelector
+        head_question="나는 아이를"
           options={[
-            '결혼을 안 했어',
-            '결혼을 했어',
-            '임신 준비 중이야',
-            '자녀가 있어',
-            '임신 중이야',
+            '갖고 싶어',
+            '갖고 싶은 생각이 없어'
           ]}
           activateOption={(option) => activateOption(2, option,'buttonselector')}
         />
@@ -54,7 +54,7 @@ function Type_A() {
         <NumberSelector
           onSelect={(selectedNumber) => console.log(selectedNumber)}
           buttonText="살쯤에 첫째 아이를 갖고 싶어"
-                    activateOption={(option) => activateOption(3, option,'numberselector')}
+          activateOption={(option) => activateOption(3, option,'numberselector')}
         />
       ),
       type: 'numberselector',
@@ -62,6 +62,7 @@ function Type_A() {
     {
       content: (
         <ButtonSelector
+        head_question="나는"
           options={[
             '아이를 1명만 갖고 싶어',
             '둘째도 갖고 싶어',
@@ -71,8 +72,55 @@ function Type_A() {
       ),
       type: 'buttonselector'
     },
+    {
+      content: (
+        <NumberSelector
+          onSelect={(selectedNumber) => console.log(selectedNumber)}
+          buttonText="살에 둘째 아이를 갖고 싶어"
+          activateOption={(option) => activateOption(5, option,'numberselector')}
+        />
+      ),
+      type: 'numberselector',
+    },
+    {
+      content: (
+        <ButtonSelector
+        head_question="나는 난자 냉동을"
+          options={[
+            '이미해서 보관 중이야',
+            '하지 않았지만, 관심 있어',
+            '하지 않았지만, 별로 관심 없어',
+            '잘 모르고 있어',
+          ]}
+          activateOption={(option) => activateOption(6, option,'buttonselector')}
+        />
+      ),
+      type: 'buttonselector'
+    },
+    {
+      content:(
+        <SixlinePickerComponent
+        dateFormat="yyyy-MM-dd"
+          placeholderText="년 월 일"
+          activateOption={(option) => activateOption(7, option,'sixlinePicker')}
+          />
+      ),
+      type: "sixlinePicker"
+    },
+    {
+      content: (
+        <ButtonSelector
+        head_question="나는 생리일이"
+          options={[
+            '규칙적이야',
+            '불규칙적이야'
+          ]}
+          activateOption={(option) => activateOption(7, option,'buttonselector')}
+        />
+      ),
+      type: 'buttonselector'
+    },
   ];
-
   let numberOfColumns = typeA_content.length;
   const [TypeAContent, setTypeAContent] = useState(typeA_content);
   const [editIndex, setEditIndex] = useState(null);

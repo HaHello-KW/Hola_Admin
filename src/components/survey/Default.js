@@ -14,7 +14,9 @@ function Default() {
     {
       content: (
         <DatePickerComponent
+          dateFormat="yyyy-MM-dd"
           placeholderText="년 월 일"
+          answer="에 태어났어"
           activateOption={(option) => activateOption(0, option, 'datepicker')}
         />
       ),
@@ -23,6 +25,7 @@ function Default() {
     {
       content: (
         <ButtonSelector
+        headQuestion="나는"
           options={[
             '난소 건강을 유지하고 싶어',
             '난자 냉동 계획이 있어',
@@ -31,6 +34,7 @@ function Default() {
             '갱년기 준비와 관리를 하고 있어',
           ]}
           activateOption={(option) => activateOption(1, option,'buttonselector')}
+          
         />
       ),
       type: 'buttonselector'
@@ -38,6 +42,7 @@ function Default() {
     {
       content: (
         <ButtonSelector
+        headQuestion="나는"
           options={[
             '결혼을 안 했어',
             '결혼을 했어',
